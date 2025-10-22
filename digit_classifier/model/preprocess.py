@@ -4,6 +4,9 @@ import io
 
 def preprocess_image(image_bytes: bytes):
     image = Image.open(io.BytesIO(image_bytes))
+
+    if image.size != (28, 28):
+        raise ValueError("Image must be 28x28 pixels")
     
     if image.mode == 'RGBA':
         image = image.convert('RGB')

@@ -27,11 +27,14 @@ class DigitClassifierService:
     def infer(self, image_bytes: bytes):
         if not self.model:
             raise Exception("Model not loaded")
+
+        image_tensor = preprocess_image(image_bytes)    
+
         try:
-            image_tensor = preprocess_image(image_bytes)
             output = self.model(image_tensor)
             return output
+        
         except Exception as e:
             print(f"Error classifying image: {e}")
             return False
-        return True
+        

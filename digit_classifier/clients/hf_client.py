@@ -10,7 +10,7 @@ class HFClient:
         self.api = HfApi(token=self.token)
         self._logged_in = False
 
-        self._download_dir = "./downloads"
+        self._download_dir = "./tmp/downloads"
         os.makedirs(self._download_dir, exist_ok=True)
 
     def login(self) -> bool:
@@ -121,7 +121,7 @@ class HFClient:
             self, 
             model: nn.Module, 
             repo_name: str, 
-            temp_dir: str = "./temp", 
+            temp_dir: str = "./tmp/temp", 
             filename: str = None
     ) -> bool:
 

@@ -45,4 +45,4 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          pytest tests/ -v --cov=app --cov-report=xml --cov-report=term
+          pytest tests/ -v

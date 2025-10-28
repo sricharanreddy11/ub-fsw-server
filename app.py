@@ -30,7 +30,8 @@ with app.app_context():
 
 @app.route('/api/health', methods=['GET'])
 def health():
-    return jsonify({'message': 'OK'}), 200
+    # TODO: Modify the response as guided in the README
+    return jsonify({}), 200
 
 if __name__ == "__main__":
     app.run(debug=True)

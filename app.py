@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 from dotenv import load_dotenv
 from auth.models.index import db
 import os
+from flask_cors import CORS
 
 
 load_dotenv()
@@ -12,6 +13,7 @@ os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN', '')
 os.environ['HF_USERNAME'] = os.getenv('HF_USERNAME', '')
 
 app = Flask(__name__)
+CORS(app, origins="*")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
 app.config['SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', '')

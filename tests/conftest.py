@@ -9,6 +9,8 @@ load_dotenv('.env.test')
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+os.environ['TEST_TOKEN'] = os.getenv('TEST_TOKEN', 'testtoken')
+
 @pytest.fixture
 def app():
     """Create Flask test app"""

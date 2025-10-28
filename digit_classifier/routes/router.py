@@ -50,24 +50,6 @@ def infer(payload):
         return jsonify({'error': str(e)}), 500
 
 
-# @digit_classifier_bp.route('/vote', methods=['POST'])
-# @token_required
-# def vote():
-#     data = request.get_json()
-#     user_id = data.get('user_id')
-#     predicted_label = data.get('predicted_label')
-#     true_label = data.get('true_label')
-
-#     if user_id is None or predicted_label is None or true_label is None:
-#         return jsonify({'error': 'user_id, predicted_label, and true_label are required'}), 400
-
-#     try:
-#         voting_service.record_vote(user_id, predicted_label, true_label)
-#         return jsonify({'message': 'Vote recorded successfully'}), 200
-#     except Exception as e:
-#         return jsonify({'error': 'Failed to record vote', 'details': str(e)}), 500
-
-
 @digit_classifier_bp.route('/stats', methods=['GET'])
 @token_required
 def get_votes_distribution(payload):
